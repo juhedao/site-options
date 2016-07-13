@@ -1,8 +1,8 @@
 {
-  "name": "juhedao/package-name",
-  "description": "package description",
+  "name": "juhedao/site-options",
+  "description": "create and manage options table for site",
   "homepage": "http://zhangxihai.cn",
-  "keywords": [],
+  "keywords": ["options","table"],
   "license": "MIT",
   "authors": [
     {
@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Juhedao\\PackageName\\": "src/"
+      "Juhedao\\SiteOptions\\": "src/"
     }
   },
   "minimum-stability": "dev"
