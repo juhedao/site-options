@@ -15,7 +15,7 @@ Site Options
 }
 ```
 
-使用 `composer update` 更新或使用 `composer install`安装。
+使用 `composer update` 更新或使用 `composer install` 安装。
 
 也可以使用 'composer require juhedao/site-options=dev-master' 单独安装此插件包。
 
@@ -26,7 +26,7 @@ Site Options
 ```php
 'providers' => [
     ...
-    Juhedao\SiteOptions\OptionsServiceProvider::class
+    Juhedao\SiteOptions\OptionServiceProvider::class
 ]
 ```
 
@@ -35,7 +35,7 @@ Site Options
 ```php
 'aliases' => [
     ...
-    'Options' => Juhedao\SiteOptions\OptionsFacade::class
+    'Option' => Juhedao\SiteOptions\OptionFacade::class
 ]
 ```
 
@@ -47,4 +47,36 @@ php artisan vendor:publish
 
 ## 使用
 
+### Blade
 
+```sh
+{{option('option_name')}}
+```
+
+### 程序中读取
+
+```php
+use Option;
+   ...
+   $options = Option::getSingle('option_name');               //通过option_name获取单个值
+   $optionGroup = Option::getGroup('option_group');           //通过group_name获取options列表 lists('option_name','option_value')
+   $optionAutoload = Option::getAutoload();                   //获取所有需要自动加载的options
+   $optionGroupNames = Option::getGroupName();                //获取所有group_name
+   $optionList = Option::getWhereNames(['name1','name2']);    //whereIn(['name1','name2'])
+```
+
+### 保存
+
+```php
+use Option;
+   ...
+   Option::save($option_name,$option_group,$option_value,$autoload);
+```
+
+### 更新
+
+```php
+use Option;
+   ...
+   Option::update($option_name,$option_group,$option_value,$autoload);
+```

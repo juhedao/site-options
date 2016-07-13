@@ -27,4 +27,12 @@ class Options extends Model  {
         return $query->lists('option_name','option_value');
     }
 
+    public function scopeGroupName($query){
+        return $query->select('option_group')->distinc('option_group')->get();
+    }
+
+    public function scopeWhereNames($query,$namesArr){
+        return $query->whereIn('option_name',$namesArr);
+    }
+
 }
